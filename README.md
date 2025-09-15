@@ -68,6 +68,9 @@ WEBMAIL_PASSWORD=your_password
 4. Create OAuth2 credentials
 5. Download `credentials.json` and place in project root
 6. Run the application and complete OAuth flow
+7. The `token.json` file will be created automatically after OAuth
+
+**Note**: `credentials.json` and `token.json` are not included in the repository for security reasons. You need to set them up locally.
 
 ### 4. Train AI Models (Optional)
 ```bash
