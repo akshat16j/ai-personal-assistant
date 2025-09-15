@@ -1,0 +1,62 @@
+[
+  {
+    "input_text": "URGENT: Final exam scheduled for tomorrow at 9 AM in room 205. Please review all materials from chapters 1-12.",
+    "output_text": "{\"summary\": \"Final Exam - Room 205\", \"start_time\": \"2025-01-16T09:00:00\", \"end_time\": \"2025-01-16T11:00:00\"}"
+  },
+  {
+    "input_text": "Reminder: Your research paper is due this Friday at 11:59 PM. Please submit via the online portal.",
+    "output_text": "{\"summary\": \"Research Paper Due\", \"start_time\": \"2025-01-17T23:59:00\", \"end_time\": \"2025-01-17T23:59:00\"}"
+  },
+  {
+    "input_text": "Group meeting scheduled for today at 3 PM in the library conference room. We need to finalize presentation slides.",
+    "output_text": "{\"summary\": \"Group Meeting - Library Conference Room\", \"start_time\": \"2025-01-15T15:00:00\", \"end_time\": \"2025-01-15T16:00:00\"}"
+  },
+  {
+    "input_text": "Interview invitation for the research assistant position. Please confirm your availability for next Thursday at 10 AM in Professor Johnson's office.",
+    "output_text": "{\"summary\": \"Research Assistant Interview - Prof Johnson's Office\", \"start_time\": \"2025-01-23T10:00:00\", \"end_time\": \"2025-01-23T11:00:00\"}"
+  },
+  {
+    "input_text": "Lab assignment 5 is now available. It's due next Tuesday at the beginning of class.",
+    "output_text": "{\"summary\": \"Lab Assignment 5 Due\", \"start_time\": \"2025-01-21T08:00:00\", \"end_time\": \"2025-01-21T08:00:00\"}"
+  },
+  {
+    "input_text": "Guest speaker presentation next Friday about machine learning applications in healthcare. Starts at 2 PM in auditorium.",
+    "output_text": "{\"summary\": \"ML Healthcare Guest Speaker - Auditorium\", \"start_time\": \"2025-01-24T14:00:00\", \"end_time\": \"2025-01-24T15:30:00\"}"
+  },
+  {
+    "input_text": "CRITICAL: Your scholarship application deadline is tomorrow. All documents must be submitted by end of day.",
+    "output_text": "{\"summary\": \"Scholarship Application Deadline\", \"start_time\": \"2025-01-16\", \"end_time\": \"2025-01-16\"}"
+  },
+  {
+    "input_text": "Midterm exam on Monday, March 3rd at 1 PM in the main lecture hall. Covers chapters 5-8.",
+    "output_text": "{\"summary\": \"Midterm Exam - Main Lecture Hall\", \"start_time\": \"2025-03-03T13:00:00\", \"end_time\": \"2025-03-03T15:00:00\"}"
+  },
+  {
+    "input_text": "Project presentation is scheduled for Wednesday at 11 AM. Each team gets 15 minutes to present.",
+    "output_text": "{\"summary\": \"Project Presentation\", \"start_time\": \"2025-01-22T11:00:00\", \"end_time\": \"2025-01-22T11:15:00\"}"
+  },
+  {
+    "input_text": "Office hours moved to Wednesdays from 2-4 PM instead of Thursdays. Please update your calendars.",
+    "output_text": "{\"summary\": \"Office Hours - Wednesday\", \"start_time\": \"2025-01-22T14:00:00\", \"end_time\": \"2025-01-22T16:00:00\"}"
+  },
+  {
+    "input_text": "Career fair next week on Tuesday and Wednesday in the student union. Runs from 10 AM to 4 PM both days.",
+    "output_text": "{\"summary\": \"Career Fair - Student Union\", \"start_time\": \"2025-01-21T10:00:00\", \"end_time\": \"2025-01-22T16:00:00\"}"
+  },
+  {
+    "input_text": "Study session tonight at 7 PM in room 301. We'll review for tomorrow's quiz on statistics.",
+    "output_text": "{\"summary\": \"Statistics Study Session - Room 301\", \"start_time\": \"2025-01-15T19:00:00\", \"end_time\": \"2025-01-15T21:00:00\"}"
+  },
+  {
+    "input_text": "Thesis defense scheduled for Friday, January 31st at 10 AM. Defense will be held in conference room B.",
+    "output_text": "{\"summary\": \"Thesis Defense - Conference Room B\", \"start_time\": \"2025-01-31T10:00:00\", \"end_time\": \"2025-01-31T12:00:00\"}"
+  },
+  {
+    "input_text": "Workshop on research methods this Saturday from 9 AM to 12 PM in the graduate student lounge.",
+    "output_text": "{\"summary\": \"Research Methods Workshop - Grad Lounge\", \"start_time\": \"2025-01-18T09:00:00\", \"end_time\": \"2025-01-18T12:00:00\"}"
+  },
+  {
+    "input_text": "Final project submission deadline is December 15th. No extensions will be granted after this date.",
+    "output_text": "{\"summary\": \"Final Project Submission Deadline\", \"start_time\": \"2025-12-15\", \"end_time\": \"2025-12-15\"}"
+  }
+]

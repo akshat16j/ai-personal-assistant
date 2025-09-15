@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Daily Briefing Agent V3</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .spinner {
+            border: 4px solid #f3f4f6;
+            border-top: 4px solid #3b82f6;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold text-gray-800 mb-2">🤖 AI Personal Assistant</h1>
+            <p class="text-lg text-gray-600">Intelligent email and calendar management</p>
+        </div>
+        
+        <!-- Main Action Section -->
+        <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+            <div class="text-center">
+                <div class="mb-6">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"></path>
+                        </svg>
+                    </div>
+                    <h2 class="text-2xl font-semibold text-gray-800 mb-2">Ready to Process Your Day</h2>
+                    <p class="text-gray-600">Click below to analyze your emails and organize your schedule</p>
+                </div>
+                
+                <button id="generateBtn" 
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition duration-200 transform hover:scale-105 shadow-lg">
+                    Generate My Daily Briefing
+                </button>
+                
+                <!-- Loading Spinner -->
+                <div id="loadingSpinner" class="hidden mt-6 flex flex-col items-center">
+                    <div class="spinner mb-4"></div>
+                    <p class="text-gray-600 font-medium">Processing your emails and calendar...</p>
+                    <p class="text-sm text-gray-500 mt-2">This may take a few moments</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Container -->
+        <div id="resultsContainer" class="hidden space-y-6">
+            <!-- Statistics Card -->
+            <div class="bg-white rounded-lg shadow-lg p-6 fade-in">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center mr-3">
+                        <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Processing Summary</h3>
+                </div>
+                <div id="statisticsContent" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                    <!-- Statistics will be populated here -->
+                </div>
+            </div>
+            
+            <!-- Email Triage Columns -->
+            <div class="bg-white rounded-lg shadow-lg p-6 fade-in">
+                <div class="flex items-center mb-6">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                        <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Email Triage</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- High Priority Column -->
+                    <div class="bg-red-50 rounded-lg p-4">
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center mr-2">
+                                <span class="text-white text-sm font-bold">!</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-red-800">High Priority</h4>
+                            <span id="highCount" class="ml-auto bg-red-200 text-red-800 text-xs font-medium px-2 py-1 rounded-full">0</span>
+                        </div>
+                        <div id="highPriorityEmails" class="space-y-3 max-h-96 overflow-y-auto">
+                            <!-- High priority emails will be populated here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Medium Priority Column -->
+                    <div class="bg-yellow-50 rounded-lg p-4">
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-yellow-500 rounded-full flex items-center justify-center mr-2">
+                                <span class="text-white text-sm font-bold">!</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-yellow-800">Medium Priority</h4>
+                            <span id="mediumCount" class="ml-auto bg-yellow-200 text-yellow-800 text-xs font-medium px-2 py-1 rounded-full">0</span>
+                        </div>
+                        <div id="mediumPriorityEmails" class="space-y-3 max-h-96 overflow-y-auto">
+                            <!-- Medium priority emails will be populated here -->
+                        </div>
+                    </div>
+                    
+                    <!-- Low Priority Column -->
+                    <div class="bg-green-50 rounded-lg p-4">
+                        <div class="flex items-center mb-4">
+                            <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-2">
+                                <span class="text-white text-sm font-bold">!</span>
+                            </div>
+                            <h4 class="text-lg font-semibold text-green-800">Low Priority</h4>
+                            <span id="lowCount" class="ml-auto bg-green-200 text-green-800 text-xs font-medium px-2 py-1 rounded-full">0</span>
+                        </div>
+                        <div id="lowPriorityEmails" class="space-y-3 max-h-96 overflow-y-auto">
+                            <!-- Low priority emails will be populated here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Today's Events Card -->
+            <div class="bg-white rounded-lg shadow-lg p-6 fade-in">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Today's Schedule</h3>
+                </div>
+                <div id="eventsContent" class="space-y-3">
+                    <!-- Events will be populated here -->
+                </div>
+            </div>
+            
+            <!-- Actions Log Card -->
+            <div class="bg-white rounded-lg shadow-lg p-6 fade-in">
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3">
+                        <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800">Agent Actions Log</h3>
+                </div>
+                <div id="actionsContent" class="space-y-3">
+                    <!-- Actions will be populated here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Error Message -->
+        <div id="errorMessage" class="hidden bg-red-50 border border-red-200 rounded-lg p-6 mt-6">
+            <div class="flex items-center">
+                <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3">
+                    <svg class="w-5 h-5 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold text-red-800">Processing Error</h3>
+                    <p id="errorText" class="text-red-600 mt-1"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generateBtn');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const resultsContainer = document.getElementById('resultsContainer');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            generateBtn.addEventListener('click', async function() {
+                // Reset UI state
+                hideError();
+                hideResults();
+                showLoading();
+                
+                try {
+                    const response = await fetch('/api/run-agent', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`Server error: ${response.status} ${response.statusText}`);
+                    }
+                    
+                    const data = await response.json();
+                    
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    
+                    hideLoading();
+                    displayResults(data);
+                    
+                } catch (error) {
+                    console.error('Error:', error);
+                    hideLoading();
+                    showError(error.message || 'An unexpected error occurred');
+                }
+            });
+            
+            function showLoading() {
+                generateBtn.disabled = true;
+                generateBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                loadingSpinner.classList.remove('hidden');
+            }
+            
+            function hideLoading() {
+                generateBtn.disabled = false;
+                generateBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                loadingSpinner.classList.add('hidden');
+            }
+            
+            function showError(message) {
+                document.getElementById('errorText').textContent = message;
+                errorMessage.classList.remove('hidden');
+            }
+            
+            function hideError() {
+                errorMessage.classList.add('hidden');
+            }
+            
+            function hideResults() {
+                resultsContainer.classList.add('hidden');
+            }
+            
+            function displayResults(data) {
+                // Display statistics
+                displayStatistics(data.statistics);
+                
+                // Display email triage
+                displayEmailTriage(data.processed_emails || []);
+                
+                // Display today's events
+                displayEvents(data.todays_events);
+                
+                // Display actions log
+                displayActions(data.actions_log);
+                
+                // Show results container
+                resultsContainer.classList.remove('hidden');
+                
+                // Scroll to results
+                resultsContainer.scrollIntoView({ behavior: 'smooth' });
+            }
+            
+            function displayStatistics(stats) {
+                const container = document.getElementById('statisticsContent');
+                container.innerHTML = `
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-blue-600">${stats.emails_processed || 0}</div>
+                        <div class="text-sm text-gray-600">Emails Processed</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-red-500">${stats.high_priority_emails || 0}</div>
+                        <div class="text-sm text-gray-600">High Priority</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-yellow-500">${stats.medium_priority_emails || 0}</div>
+                        <div class="text-sm text-gray-600">Medium Priority</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-green-500">${stats.high_priority_events_created || 0}</div>
+                        <div class="text-sm text-gray-600">Events Created</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-purple-500">${stats.emails_labeled_successfully || 0}</div>
+                        <div class="text-sm text-gray-600">Successfully Labeled</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-orange-500">${stats.emails_labeling_failed || 0}</div>
+                        <div class="text-sm text-gray-600">Failed to Label</div>
+                    </div>
+                `;
+            }
+            
+            function displayEmailTriage(emails) {
+                // Group emails by priority
+                const highPriority = emails.filter(email => email.priority === 'HIGH');
+                const mediumPriority = emails.filter(email => email.priority === 'MEDIUM');
+                const lowPriority = emails.filter(email => email.priority === 'LOW');
+                
+                // Update counts
+                document.getElementById('highCount').textContent = highPriority.length;
+                document.getElementById('mediumCount').textContent = mediumPriority.length;
+                document.getElementById('lowCount').textContent = lowPriority.length;
+                
+                // Display emails in each column
+                displayEmailColumn('highPriorityEmails', highPriority, 'red');
+                displayEmailColumn('mediumPriorityEmails', mediumPriority, 'yellow');
+                displayEmailColumn('lowPriorityEmails', lowPriority, 'green');
+            }
+            
+            function displayEmailColumn(containerId, emails, color) {
+                const container = document.getElementById(containerId);
+                
+                if (emails.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-8 text-gray-500">
+                            <svg class="w-8 h-8 mx-auto mb-2 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <p class="text-sm">No emails</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                container.innerHTML = emails.map(email => `
+                    <div class="bg-white rounded-lg p-3 shadow-sm border-l-4 border-${color}-400 hover:shadow-md transition-shadow">
+                        <div class="flex items-start justify-between">
+                            <div class="flex-grow min-w-0">
+                                <h5 class="font-medium text-gray-800 text-sm truncate" title="${escapeHtml(email.subject)}">
+                                    ${escapeHtml(email.subject)}
+                                </h5>
+                                <p class="text-xs text-gray-600 mt-1 truncate" title="${escapeHtml(email.sender)}">
+                                    From: ${escapeHtml(email.sender)}
+                                </p>
+                                <div class="flex items-center mt-2">
+                                    <span class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-${color}-100 text-${color}-800">
+                                        ${email.priority}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            function displayEvents(events) {
+                const container = document.getElementById('eventsContent');
+                
+                if (!events || events.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-8 text-gray-500">
+                            <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            <p>No events scheduled for today</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                container.innerHTML = events.map(event => `
+                    <div class="flex items-start p-3 bg-gray-50 rounded-lg">
+                        <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div class="flex-grow">
+                            <div class="font-medium text-gray-800">${escapeHtml(event.summary || 'Untitled Event')}</div>
+                            ${event.start_time ? `<div class="text-sm text-gray-600 mt-1">⏰ ${formatEventTime(event.start_time, event.all_day)}</div>` : ''}
+                            ${event.location ? `<div class="text-sm text-gray-600 mt-1">📍 ${escapeHtml(event.location)}</div>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            function displayActions(actions) {
+                const container = document.getElementById('actionsContent');
+                
+                if (!actions || actions.length === 0) {
+                    container.innerHTML = `
+                        <div class="text-center py-8 text-gray-500">
+                            <svg class="w-12 h-12 mx-auto mb-4 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                            </svg>
+                            <p>No actions performed</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                container.innerHTML = actions.map(action => `
+                    <div class="flex items-start p-3 border-l-4 ${getActionBorderColor(action.type)} bg-gray-50 rounded-r-lg">
+                        <div class="flex-grow">
+                            <div class="font-medium text-gray-800">${escapeHtml(action.action)}</div>
+                            <div class="text-sm text-gray-600 mt-1">${escapeHtml(action.details)}</div>
+                            ${action.status === 'success' ? 
+                                '<div class="text-xs text-green-600 mt-1">✅ Completed successfully</div>' : 
+                                '<div class="text-xs text-red-600 mt-1">❌ Failed</div>'
+                            }
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            function getActionBorderColor(type) {
+                switch (type) {
+                    case 'email_label': return 'border-blue-400';
+                    case 'event_create': return 'border-green-400';
+                    case 'error': return 'border-red-400';
+                    default: return 'border-gray-400';
+                }
+            }
+            
+            function formatEventTime(timeStr, isAllDay) {
+                if (isAllDay) return 'All day';
+                try {
+                    const date = new Date(timeStr);
+                    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                } catch (e) {
+                    return timeStr;
+                }
+            }
+            
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+        });
+    </script>
+</body>
+</html>

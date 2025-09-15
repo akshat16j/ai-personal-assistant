@@ -1,0 +1,158 @@
+[
+  {
+    "text": "URGENT: Final exam scheduled for tomorrow at 9 AM in room 205. Please review all materials from chapters 1-12. Failure to attend will result in automatic failure of the course.",
+    "label": "HIGH"
+  },
+  {
+    "text": "Reminder: Your research paper is due this Friday at 11:59 PM. Please submit via the online portal. Late submissions will be penalized 10% per day.",
+    "label": "HIGH"
+  },
+  {
+    "text": "Group meeting scheduled for today at 3 PM in the library conference room. We need to finalize our presentation slides for tomorrow's presentation.",
+    "label": "HIGH"
+  },
+  {
+    "text": "Dear students, please note that office hours have been moved to Wednesdays from 2-4 PM instead of Thursdays. Please update your calendars accordingly.",
+    "label": "MEDIUM"
+  },
+  {
+    "text": "Your midterm grades have been posted on the student portal. Please review and contact me if you have any questions about your performance.",
+    "label": "HIGH"
+  },
+  {
+    "text": "The career fair is next week on Tuesday and Wednesday in the student union. Many companies will be recruiting for internships and full-time positions.",
+    "label": "MEDIUM"
+  },
+  {
+    "text": "Lab assignment 5 is now available on the course website. It's due next Tuesday at the beginning of class. Please work in pairs as assigned.",
+    "label": "MEDIUM"
+  },
+  {
+    "text": "Guest speaker will be presenting next Friday about machine learning applications in healthcare. Attendance is optional but highly recommended.",
+    "label": "LOW"
+  },
+  {
+    "text": "The library will be closed this weekend for maintenance. Please plan your study schedule accordingly and use alternative study spaces.",
+    "label": "LOW"
+  },
+  {
+    "text": "Textbook sale happening at the bookstore this week. Used textbooks available at 50% discount. Sale ends Friday at 5 PM.",
+    "label": "LOW"
+  },
+  {
+    "text": "Pizza party in the common room tonight at 7 PM! Come join us for some fun and socializing with your fellow students.",
+    "label": "MEDIUM"
+  },
+  {
+    "text": "Lost: Blue backpack left in classroom 101 yesterday. Contains important notes and textbooks. Please contact me if found.",
+    "label": "LOW"
+  },
+  {
+    "text": "Study group forming for Economics 201. We meet every Sunday at 2 PM in the library. Contact Sarah if you're interested in joining.",
+    "label": "LOW"
+  },
+  {
+    "text": "Free tutoring available for calculus students. Sessions held Monday, Wednesday, and Friday from 6-8 PM in the math building.",
+    "label": "LOW"
+  },
+  {
+    "text": "Campus gym membership renewal deadline is approaching. Please renew by the end of this month to avoid service interruption.",
+    "label": "MEDIUM"
+  },
+  {
+    "text": "CRITICAL: Your scholarship application is incomplete. Missing documents must be submitted by tomorrow or your application will be disqualified.",
+    "label": "HIGH"
+  },
+  {
+    "text": "Emergency: Class cancelled today due to professor illness. Makeup class will be scheduled soon. Check your email for updates.",
+    "label": "HIGH"
+  },
+  {
+    "text": "Interview invitation for the research assistant position. Please confirm your availability for next Thursday at 10 AM in Professor Johnson's office.",
+    "label": "HIGH"
+  },
+  {
+    "text": "Course registration for next semester opens Monday at 8 AM. Priority registration for seniors ends Wednesday at midnight.",
+    "label": "MEDIUM"
+  },
+  {
+    "text": "New parking regulations will be enforced starting next month. Please review the updated parking policy attached to this email.",
+    "label": "LOW"
+  },
+  {
+    "text": "Student newspaper looking for contributors. Great opportunity to build your portfolio. Contact the editor if interested in writing articles.",
+    "label": "LOW"
+  },
+  {
+    "text": "Coffee shop in the student center now offers 10% student discount. Just show your student ID at checkout to receive the discount.",
+    "label": "LOW"
+  },
+  {
+    "text": "Catch up with your favorite creators. Check out these top posts from your creators.",
+    "label": "LOW"
+  },
+  {
+    "text": "We noticed a new sign-in to your Google Account on a Apple iPad device. If this was you, you don't need to do anything. If not, we'll help you secure your account.",
+    "label": "LOW"
+  },
+  {
+    "text": "Password reset: Seems like you forgot your password for Replit. If this is true, click below to reset your password.",
+    "label": "LOW"
+  },
+  {
+    "text": "Yash Shenai has accepted your invitation. Let's start a conversation.",
+    "label": "LOW"
+  },
+  {
+    "text": "Unlock exclusive deals this September @ UNiDAYS 🛍️📚.Don’t junk your savings! Add hello@info.myunidays.com to your address book. UNiDAYS is registered in England and Wales at MyUnidays Ltd | Spaces 3rd Floor, Epworth House, City Road, London EC1Y 1AA  | United Kingdom",
+    "label": "LOW"
+  },
+  {
+    "text": "Akshat, start a conversation with your new connection, Yash",
+    "label": "LOW"
+  },
+  {
+    "text": "Posts from LuckyWhacky and other posts you might’ve missed",
+    "label": "LOW"
+  },
+  {
+    "text": "Dear All, Please find Notification [No. IITD/AREG/4(8)/2025/446373 dated 15.09.2025] regarding the \"Membership of the Advisory Committee for Library (ACL) for the session 2025-2026\" at the hyperlink given below:",
+    "label": "LOW"
+  },
+  {
+    "text": "Dear All, Those of you who would like to collect your corrected Quiz 2 answer scripts before the Minor can come to MS649 today evening between 5:30-6:30 and collect. You can also collect it after the exams when you come to see the Minor answer scripts. We will write to you later in the evening regarding the room and seat allocation for the Minor on 17th 3:30-5:30PM.",
+    "label": "HIGH"
+  },
+  {
+    "text": "Dear All, Please find below hyperlinks containing Notification No. [IITD/AREG/4(3)/2025/446216 dated 15/09/2025] regarding \"Appointment of Associate Head, CRF\".The signed copy is attached at the below link:",
+    "label": "LOW"
+  },
+  {
+    "text": "Greetings Everybody, The form deadline for Rendezvous '25 Coordinators has been extended to 24th July, End of Day. Please note that filling the form diligently is necessary for further team selection processes. Extended Deadline: 24th July, Thursday, End of Day",
+    "label": "MEDIUM"
+  },
+  {
+    "text": "Dear All, The Ph.D. viva-voce examination of Ms. Marvi Kaushik (2018CHZ8085) will be held on Monday, December 23rd, 2024, at 10.00 am. The title of her thesis is \"NOx operating cycle in Pd/zeolite passive NOx adsorbers\". The viva will be conducted through video conferencing, for which the link is given below. All are cordially invited to attend the seminar. The abstract of the seminar is attached herewith.",
+    "label": "LOW"
+  },
+  {
+    "text": "Dear Akshat, I am sorry to hear about your loss. You can meet me once you start attending lectures. Regards, Divesh",
+    "label": "HIGH"
+  },
+  {
+    "text": "Dear Students, The Chemical Engineering Society (ChES) is pleased to share the ChemE Library, a centralized Google Drive repository designed to support your academic journey across all semesters. This resource hub compiles: Course notes & reference materials Assignments & solved examples Previous year papers Additional study aids",
+    "label": "MEDIUM"
+  },
+  {
+    "text": "Dear All, The class convenor has informed me that many of you are heavily engaged with internship activities this week. As a result, he has requested that we reschedule the quiz to next week on 20th August. If anyone has any concerns with this change, please let me know by midnight today (12th August). No response would mean that everyone wants the quiz to be shifted to the 20th. For your information, the second quiz is tentatively scheduled for 27th August. Regards, Vikram",
+    "label": "HIGH"
+  },
+  {
+    "text": "Dear All, We will have a quiz on Wednesday at 5 pm in LH 121. The quiz will be on Moodle. Syllabus - everything covered till lecture 7. Regards, Vikram",
+    "label": "HIGH"
+  },
+  {
+    "text": "Dear Students, The rooms, LH108 and LH111 (if needed) will be made available for the purpose of studying for the upcoming examinations from September 9, 2024, until September 19, 2024, between 9 PM of each day and 6 AM of the next day. Cleaning routines start in these rooms from 6:30 AM onwards. Therefore, you need to vacate the LHC by 6 AM. The movement of the students will be restricted only to the designated rooms. You must strictly follow the instructions of the security personnel on duty. Please use this facility with responsibility and civic sense. As usual, the entry and exit of the students will be recorded/inspected. Therefore, you must carry your institute ID card. Best wishes for your exams.",
+    "label": "MEDIUM"
+  }
+]
