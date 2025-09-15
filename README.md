@@ -1,8 +1,8 @@
 # AI Personal Assistant
 
-## Akshat Jangid
-## Department of Chemical Engineering
-## IIT Delhi
+### Akshat Jangid
+### Department of Chemical Engineering
+### IIT Delhi
 
 An intelligent email triage and calendar management system that processes IIT Delhi webmail and integrates with Google Calendar using AI-powered classification.
 
