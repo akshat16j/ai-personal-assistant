@@ -1,8 +1,8 @@
 # AI Personal Assistant
 
-### Akshat Jangid
-### Department of Chemical Engineering
-### IIT Delhi
+**Akshat Jangid**
+**Department of Chemical Engineering**
+**IIT Delhi**
 
 
 
