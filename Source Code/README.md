@@ -55,7 +55,7 @@ pip install -r requirements.txt
 ```
 
 ### 2. Configure IIT Delhi Webmail
-Edit `creds.env`:
+Edit `Source Code/creds.env`:
 ```
 WEBMAIL_USER=your_username
 WEBMAIL_PASSWORD=your_password
@@ -66,14 +66,15 @@ WEBMAIL_PASSWORD=your_password
 2. Create a new project or select existing one
 3. Enable Google Calendar API
 4. Create OAuth2 credentials
-5. Download `credentials.json` and place in project root
+5. Download `credentials.json` and place in `Source Code/` directory
 6. Run the application and complete OAuth flow
 7. The `token.json` file will be created automatically after OAuth
 
-**Note**: `credentials.json` and `token.json` are not included in the repository for security reasons. You need to set them up locally.
+**Note**: `credentials.json` and `token.json` are not included in the repository for security reasons. You need to set them up locally in the `Source Code/` directory.
 
 ### 4. Train AI Models (Optional)
 ```bash
+cd Source Code
 python models/train.py
 ```
 *Note: Pre-trained models are included. Retraining is only needed if you want to update with new data.*
@@ -82,6 +83,7 @@ python models/train.py
 
 ### Web Interface (Recommended)
 ```bash
+cd Source Code
 python app.py
 ```
 - Open http://localhost:5000 in your browser
@@ -91,6 +93,7 @@ python app.py
 
 ### CLI Interface
 ```bash
+cd Source Code
 python main.py
 ```
 - Processes recent emails and reassigns priorities
@@ -194,12 +197,13 @@ Content: There will be a quiz tomorrow at 10:00 AM in Room 101.
 ## 🚀 Getting Started
 
 1. **Clone the repository**
-2. **Install dependencies**: `pip install -r requirements.txt`
-3. **Configure credentials**: Edit `creds.env` with your IIT Delhi webmail credentials
-4. **Setup Google Calendar**: Follow the OAuth2 setup process
-5. **Run the application**: `python app.py`
-6. **Open your browser**: Navigate to http://localhost:5000
-7. **Start processing**: Click "Run AI Agent" to begin email processing
+2. **Navigate to source code**: `cd ai-personal-assistant/Source Code`
+3. **Install dependencies**: `pip install -r requirements.txt`
+4. **Configure credentials**: Edit `creds.env` with your IIT Delhi webmail credentials
+5. **Setup Google Calendar**: Follow the OAuth2 setup process
+6. **Run the application**: `python app.py`
+7. **Open your browser**: Navigate to http://localhost:5000
+8. **Start processing**: Click "Run AI Agent" to begin email processing
 
 ## 🤝 Contributing
 
